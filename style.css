@@ -1,0 +1,78 @@
+/* -------------------------------------------------------------------------- */
+/* HRITIK'S SIGNATURE THEME (INKWELL PALETTE)                                 */
+/* -------------------------------------------------------------------------- */
+:root {
+  /* Core Palette from your Image */
+  --bg: #2c3639; /* Inkwell */
+  --surface: #3f4e4f; /* Lunar Eclipse */
+  --overlay: #4a5b5c; /* Slightly lighter surface for hovers */
+
+  /* Text Colors */
+  --text: #dcd7c9; /* Au Lait */
+  --subtext: #a7a39a; /* Dimmed Au Lait */
+
+  /* Accents */
+  --accent: #a27b5b; /* Creme Brulee */
+  --secondary: #e3caa5; /* Lighter Gold/Cream */
+  --tertiary: #95afc0; /* Muted Blue/Grey for subtle details */
+  --highlight: #ffffff; /* Pure White for pop */
+}
+
+/* Base Setup */
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  /* Subtly smoother font rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar Customization */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--surface);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* The "Aesthetic Blob" - Adjusted to match your Gold/Earth tones */
+.click-blob {
+  position: absolute;
+  width: 200px; /* Made slightly larger/softer */
+  height: 200px;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(80px);
+  opacity: 0.4;
+  z-index: 0;
+  animation: blobFade 1.5s ease-out forwards;
+}
+
+@keyframes blobFade {
+  0% {
+    transform: scale(0.5);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* Map Fix */
+#map {
+  height: 100%;
+  min-height: 200px;
+  width: 100%;
+  z-index: 0;
+  background: transparent;
+  /* Make map slightly desaturated to fit the moody theme */
+  filter: sepia(20%) contrast(1.1);
+}
