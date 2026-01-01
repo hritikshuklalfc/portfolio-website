@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hritik Shukla</title>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              // The "Original" Touch: Professional Fonts
+              sans: ["Inter", "sans-serif"],
+              display: ['"Space Grotesk"', "sans-serif"],
+              mono: ['"JetBrains Mono"', "monospace"], // Keep mono only for code snippets
+            },
+            colors: {
+              bg: "var(--bg)",
+              surface: "var(--surface)",
+              overlay: "var(--overlay)",
+              text: "var(--text)",
+              subtext: "var(--subtext)",
+              accent: "var(--accent)",
+              secondary: "var(--secondary)",
+              tertiary: "var(--tertiary)",
+              highlight: "var(--highlight)",
+            },
+            borderRadius: {
+              lg: "0.6rem", // Sharper corners than the original site
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body
+    class="bg-bg text-text font-sans min-h-screen p-6 md:p-12 max-w-7xl mx-auto relative overflow-x-hidden selection:bg-accent selection:text-bg"
+  >
+    <div
+      id="blob-container"
+      class="fixed inset-0 pointer-events-none overflow-hidden z-0"
+    ></div>
+
+    <div class="relative z-10">
+      <nav
+        class="flex flex-wrap justify-between items-center mb-20 text-sm sticky top-0 z-50 bg-bg/80 backdrop-blur-md py-4 border-b border-white/5"
+      >
+        <div class="font-display font-bold text-xl tracking-tight text-white">
+          ~ / hritik<span class="text-accent">.dev</span>
+        </div>
+        <ul
+          class="flex space-x-8 text-subtext font-medium text-xs uppercase tracking-widest"
+        >
+          <li class="hover:text-accent cursor-pointer transition-colors">
+            <a href="about.html">About</a>
+          </li>
+          <li class="hover:text-accent cursor-pointer transition-colors">
+            Writing
+          </li>
+          <li class="hover:text-accent cursor-pointer transition-colors">
+            Projects
+          </li>
+        </ul>
+      </nav>
+
+      <section class="mb-24">
+        <div class="mb-6 flex items-center gap-3">
+          <span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
+          <span
+            class="text-accent font-mono text-xs font-bold tracking-widest uppercase"
+            >Hello World!</span
+          >
+        </div>
+
+        <h1
+          class="font-display text-4xl md:text-6xl font-bold mb-8 leading-tight text-white"
+        >
+          Hey I'm <span class="text-subtext opacity-60">Hritik Shukla!</span>
+        </h1>
+
+        <p
+          class="text-subtext text-lg max-w-2xl leading-relaxed mb-10 font-light"
+        >
+          <span class="text-text font-semibold"></span>I'm a 1st year
+          engineering student and a developer based in
+          <span class="text-text font-semibold">Hyderabad</span> , specializing
+          in building high-performance
+          <span class="text-accent">Web Application</span>,
+          <span class="text-accent">AI Applications</span> and
+          <span class="text-accent">Data Driven Tools</span>...
+        </p>
+
+        <div class="flex flex-wrap gap-4 text-sm font-medium">
+          <a
+            href="https://github.com/hritikshuklalfc"
+            target="_blank"
+            class="px-6 py-3 bg-surface rounded-lg hover:bg-accent hover:text-bg transition-all duration-300 flex items-center gap-3 group border border-white/5"
+          >
+            <i class="fab fa-github text-lg"></i> <span>GitHub</span>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/hritik-shukla-a81350366"
+            target="_blank"
+            class="px-6 py-3 border border-subtext/20 rounded-lg hover:border-accent hover:text-accent transition-all duration-300 flex items-center gap-3"
+          >
+            <i class="fab fa-linkedin text-lg"></i> <span>LinkedIn</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-24">
+        <div
+          class="bg-surface p-6 rounded-lg border border-white/5 hover:border-accent/30 transition-all duration-300 col-span-1 md:col-span-1 flex flex-col justify-between group"
+        >
+          <div class="flex items-center gap-2 mb-4">
+            <i class="fas fa-layer-group text-accent"></i>
+            <h3 class="font-bold font-display text-white">Tech Stack</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span
+              class="px-2 py-1 bg-bg rounded text-xs text-subtext border border-white/5"
+              >Python</span
+            >
+            <span
+              class="px-2 py-1 bg-bg rounded text-xs text-subtext border border-white/5"
+              >HTML</span
+            >
+            <span
+              class="px-2 py-1 bg-bg rounded text-xs text-subtext border border-white/5"
+              >CSS</span
+            >
+            <span
+              class="px-2 py-1 bg-bg rounded text-xs text-subtext border border-white/5"
+              >JavaScript</span
+            >
+            <span
+              class="px-2 py-1 bg-bg rounded text-xs text-subtext border border-white/5"
+              >C Language</span
+            >
+            <span
+              class="px-2 py-1 bg-bg rounded text-xs text-subtext border border-white/5"
+              >Graphic Design</span
+            >
+            <span
+              class="px-2 py-1 bg-bg rounded text-xs text-subtext border border-white/5"
+              >Content Writing</span
+            >
+          </div>
+        </div>
+
+        <div
+          class="bg-accent p-6 rounded-lg border border-transparent hover:brightness-110 transition-all duration-300 col-span-1 md:col-span-1 flex flex-col justify-center items-center text-center shadow-lg shadow-accent/10"
+        >
+          <div class="text-bg mb-2 text-2xl">
+            <i class="fas fa-paper-plane"></i>
+          </div>
+          <h3 class="font-bold text-bg mb-1 font-display">Let's Build</h3>
+          <p class="text-xs text-bg/80 mb-4">Open for collaborations.</p>
+          <a
+            href="mailto:thehritikshukla@gmail.com"
+            class="px-6 py-2 bg-bg text-accent font-bold rounded hover:scale-105 transition-transform w-full text-xs uppercase tracking-wide"
+          >
+            Email Me
+          </a>
+        </div>
+
+        <div
+          class="bg-surface p-0 rounded-lg border border-white/5 hover:border-accent/30 transition-all duration-300 col-span-1 md:col-span-1 relative overflow-hidden group h-48 md:h-auto min-h-[200px]"
+        >
+          <div
+            id="map"
+            class="absolute inset-0 z-0 opacity-60 group-hover:opacity-80 transition-opacity duration-500 grayscale group-hover:grayscale-0"
+          ></div>
+          <div class="absolute top-4 left-4 z-10 pointer-events-none">
+            <div
+              class="flex items-center gap-2 text-[10px] font-bold text-bg mb-1 bg-accent px-2 py-1 rounded"
+            >
+              <i class="fas fa-location-dot"></i> HYDERABAD
+            </div>
+          </div>
+          <div
+            class="absolute bottom-4 right-4 z-10 text-xs font-mono bg-bg/90 px-3 py-1 rounded text-accent border border-accent/20 backdrop-blur-sm pointer-events-none"
+            id="live-clock"
+          >
+            00:00:00
+          </div>
+        </div>
+
+        <div
+          class="bg-surface p-6 rounded-lg border border-white/5 hover:border-accent/30 transition-all duration-300 col-span-1 md:col-span-1 flex flex-col justify-center items-center text-center"
+        >
+          <div class="text-[10px] text-subtext mb-2 uppercase tracking-widest">
+            Global Likes
+          </div>
+          <div
+            class="text-4xl font-bold text-white mb-2 font-display"
+            id="click-count"
+          >
+            --
+          </div>
+          <div
+            class="text-[10px] text-accent bg-bg px-2 py-1 rounded border border-white/5"
+          >
+            <i class="fas fa-signal mr-1"></i> Live Interactions
+          </div>
+        </div>
+
+        <div
+          class="bg-surface p-8 rounded-lg border border-white/5 hover:border-accent/30 transition-all duration-300 col-span-1 md:col-span-2"
+        >
+          <div
+            class="flex justify-between items-center mb-6 text-subtext border-b border-white/5 pb-4"
+          >
+            <div class="flex gap-2 items-center">
+              <i class="fas fa-crosshairs text-secondary"></i>
+              <span class="font-bold text-white font-display"
+                >Current Focus</span
+              >
+            </div>
+            <span
+              class="text-[10px] text-secondary bg-accent/10 px-2 py-1 rounded-full animate-pulse"
+              >Active Sprint</span
+            >
+          </div>
+
+          <div class="grid grid-cols-3 gap-4">
+            <div class="text-center group cursor-default">
+              <div
+                class="w-12 h-12 mx-auto bg-bg rounded-full flex items-center justify-center mb-3 group-hover:scale-110 transition-transform border border-white/5"
+              >
+                <i class="fab fa-python text-xl text-accent"></i>
+              </div>
+              <div class="text-xs font-bold text-white">Mastering</div>
+              <div class="text-[10px] text-subtext mt-1">
+                Object Oriented Programming
+              </div>
+            </div>
+            <div class="text-center group cursor-default">
+              <div
+                class="w-12 h-12 mx-auto bg-bg rounded-full flex items-center justify-center mb-3 group-hover:scale-110 transition-transform border border-white/5"
+              >
+                <i class="fas fa-book text-xl text-accent"></i>
+              </div>
+              <div class="text-xs font-bold text-white">Learning</div>
+              <div class="text-[10px] text-subtext mt-1">JavaScript</div>
+            </div>
+            <div class="text-center group cursor-default">
+              <div
+                class="w-12 h-12 mx-auto bg-bg rounded-full flex items-center justify-center mb-3 group-hover:scale-110 transition-transform border border-white/5"
+              >
+                <i class="fab fa-apple text-xl text-accent"></i>
+              </div>
+              <div class="text-xs font-bold text-white">Listening</div>
+              <div class="text-[10px] text-subtext mt-1">The NF</div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="bg-surface p-8 rounded-lg border border-white/5 hover:border-accent/30 transition-all duration-300 col-span-1 md:col-span-2 flex flex-col justify-center"
+        >
+          <div
+            class="flex justify-between items-center mb-6 border-b border-white/5 pb-4"
+          >
+            <div class="flex gap-2 items-center">
+              <i class="fas fa-rss text-accent"></i>
+              <span class="font-bold text-white font-display">Updates</span>
+            </div>
+            <div class="flex gap-3 text-sm text-subtext">
+              <i
+                class="fab fa-x hover:text-white transition-colors cursor-pointer"
+                ><a href="https://x.com/hritikshukla005"></a
+              ></i>
+              <i
+                class="fab fa-linkedin hover:text-white transition-colors cursor-pointer"
+                ><a href="www.linkedin.com/in/hritik-shukla-a81350366"></a
+              ></i>
+            </div>
+          </div>
+          <ul class="space-y-4 text-sm" id="social-feed"></ul>
+        </div>
+      </section>
+
+      <section class="mb-24">
+        <h2
+          class="text-3xl font-bold mb-10 font-display text-white border-l-4 border-accent pl-4"
+        >
+          Featured Projects
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <a
+            href="https://pedalbyzeroday.base44.app/"
+            target="_blank"
+            class="block bg-surface p-8 rounded-lg border border-white/5 hover:border-accent transition-all duration-300 group relative overflow-hidden"
+          >
+            <div
+              class="absolute top-0 right-0 bg-accent text-bg text-[10px] font-bold px-3 py-1 rounded-bl-lg font-mono"
+            >
+              LIVE
+            </div>
+            <div class="mb-4">
+              <h3
+                class="text-2xl font-bold text-white group-hover:text-accent transition-colors font-display"
+              >
+                Pedal
+              </h3>
+              <p class="text-xs text-subtext font-mono mt-1">
+                Hackathon Project
+              </p>
+            </div>
+            <p class="text-subtext text-sm mb-6 leading-relaxed">
+              It's a platform which connects student with the local market and
+              gives them the oppertunity to earn the money by performing simple
+              tasks.
+            </p>
+            <div
+              class="flex gap-2 text-[10px] font-bold uppercase tracking-widest text-secondary"
+            >
+              <span class="bg-bg px-2 py-1 rounded border border-white/5"
+                >Web App</span
+              >
+              <span class="bg-bg px-2 py-1 rounded border border-white/5"
+                >Base44</span
+              >
+            </div>
+          </a>
+
+          <div
+            class="bg-surface p-8 rounded-lg border border-white/5 hover:border-secondary transition-all duration-300 group relative overflow-hidden cursor-pointer"
+          >
+            <div
+              class="absolute top-0 right-0 bg-secondary text-overlay border-l border-b border-white/5 text-[10px] font-bold px-3 py-1 rounded-bl-lg font-mono"
+            >
+              IN PROCESS
+            </div>
+            <div class="mb-4">
+              <h3
+                class="text-2xl font-bold text-white group-hover:text-secondary transition-colors font-display"
+              >
+                LFC News App
+              </h3>
+            </div>
+            <p class="text-subtext text-sm mb-6 leading-relaxed">
+              All of the Liverpool FC relted news, tactical analysis and
+              transfer discussion all at one place, whithout clickbait and Ads.
+            </p>
+            <div
+              class="flex flex-wrap gap-2 text-[10px] font-bold uppercase tracking-widest text-accent"
+            >
+              <span class="bg-bg px-2 py-1 rounded border border-white/5"
+                >JavaScript</span
+              >
+              <span class="bg-bg px-2 py-1 rounded border border-white/5"
+                >HTML & Tailwind CSS</span
+              >
+              <span class="bg-bg px-2 py-1 rounded border border-white/5"
+                >Scraping</span
+              >
+            </div>
+          </div>
+
+          <div
+            class="bg-surface p-8 rounded-lg border border-dashed border-subtext/20 hover:border-tertiary transition-all duration-300 group relative overflow-hidden cursor-pointer"
+          >
+            <div
+              class="absolute bg-tertiary rounded-bl-lg top-0 right-0 text-overlay text-[10px] font-bold px-3 py-1 font-mono"
+            >
+              CONCEPT
+            </div>
+            <div class="mb-4">
+              <h3
+                class="text-2xl font-bold text-white group-hover:text-tertiary transition-colors font-display"
+              >
+                xGenius
+              </h3>
+            </div>
+            <p class="text-subtext text-sm mb-6 leading-relaxed">
+              AI-driven scouting platform rethinking how football talent is
+              identified using Raw Data and Computer Vision.
+            </p>
+            <div
+              class="flex flex-wrap gap-2 text-[10px] font-bold uppercase tracking-widest text-tertiary"
+            >
+              <span class="bg-bg px-2 py-1 rounded border border-white/5"
+                >PYTHON & ITS LIBRARIES</span
+              >
+              <span class="bg-bg px-2 py-1 rounded border border-white/5"
+                >SCRAPING</span
+              >
+              <span class="bg-bg px-2 py-1 rounded border border-white/5"
+                >Computer Vision</span
+              >
+            </div>
+          </div>
+
+          <div
+            class="bg-surface p-8 rounded-lg border border-white/5 hover:border-secondary transition-all duration-300 group relative overflow-hidden cursor-pointer"
+          >
+            <div
+              class="absolute top-0 right-0 bg-secondary text-overlay border-l border-b border-white/5 text-[10px] font-bold px-3 py-1 rounded-bl-lg font-mono"
+            >
+              IN PROCESS
+            </div>
+            <div class="mb-4">
+              <h3
+                class="text-2xl font-bold text-white group-hover:text-secondary transition-colors font-display"
+              >
+                Qunatum Poet
+              </h3>
+            </div>
+            <p class="text-subtext text-sm mb-6 leading-relaxed">
+              Generative poetry that utilizes quantum randomness concepts to
+              create non-deterministic verse.
+            </p>
+            <div
+              class="flex flex-wrap gap-2 text-[10px] font-bold uppercase tracking-widest text-accent"
+            >
+              <span class="bg-bg px-2 py-1 rounded border border-white/5"
+                >Python</span
+              >
+              <span class="bg-bg px-2 py-1 rounded border border-white/5"
+                >APIs</span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-24">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div
+            class="bg-surface p-6 rounded-lg text-center border border-white/5 hover:bg-bg transition-colors"
+          >
+            <div class="text-3xl font-bold text-secondary font-display">2e</div>
+            <div
+              class="text-[10px] text-subtext mt-1 uppercase tracking-widest"
+            >
+              ADHD + High IQ
+            </div>
+          </div>
+          <div
+            class="bg-surface p-6 rounded-lg text-center border border-white/5 hover:bg-bg transition-colors"
+          >
+            <div class="text-3xl font-bold text-white mb-2">
+              <i class="fas fa-code"></i>
+            </div>
+            <div
+              class="text-[10px] text-subtext mt-1 uppercase tracking-widest"
+            >
+              Data Scientist and Full Stack Developer
+            </div>
+          </div>
+          <div
+            class="bg-surface p-6 rounded-lg text-center border border-white/5 hover:bg-bg transition-colors"
+          >
+            <div class="text-3xl font-bold text-accent mb-2">
+              <i class="fab fa-instagram"></i>
+            </div>
+            <a
+              href="https://www.instagram.com/hritik5hukla/"
+              target="_blank"
+              class="text-[10px] text-subtext mt-1 uppercase tracking-widest hover:text-white"
+              >@hritik5hukla</a
+            >
+          </div>
+          <div
+            class="bg-surface p-6 rounded-lg text-center border border-white/5 hover:bg-bg transition-colors"
+          >
+            <div class="text-3xl font-bold text-[#e32828] font-display">
+              YNWA
+            </div>
+            <div
+              class="text-[10px] text-subtext mt-1 uppercase tracking-widest"
+            >
+              Liverpool FC
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer
+        class="border-t border-white/5 pt-10 flex flex-col md:flex-row justify-between items-center text-xs text-subtext pb-12 font-mono"
+      >
+        <div class="flex items-center gap-2 mb-4 md:mb-0">
+          <div class="w-2 h-2 rounded-full bg-accent animate-pulse"></div>
+          <span>© 2025 Hritik Shukla. Systems Nominal.</span>
+        </div>
+        <div class="flex gap-6 items-center">
+          <span
+            ><i class="far fa-clock mr-2"></i
+            ><span id="footer-time">00:00</span></span
+          >
+          <div class="flex gap-4 text-lg ml-4 border-l border-white/10 pl-6">
+            <a
+              href="https://github.com/hritikshuklalfc"
+              class="hover:text-accent transition-colors"
+              ><i class="fab fa-github"></i
+            ></a>
+            <a
+              href="https://www.linkedin.com/in/hritik-shukla-a81350366"
+              class="hover:text-accent transition-colors"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+            <a
+              href="https://x.com/hritikshukla005"
+              class="hover:text-accent transition-colors"
+              ><i class="fab fa-x"></i
+            ></a>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

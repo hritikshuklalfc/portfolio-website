@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About | Hritik Shukla</title>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+              display: ['"Space Grotesk"', "sans-serif"],
+              mono: ['"JetBrains Mono"', "monospace"],
+            },
+            colors: {
+              bg: "var(--bg)",
+              surface: "var(--surface)",
+              overlay: "var(--overlay)",
+              text: "var(--text)",
+              subtext: "var(--subtext)",
+              accent: "var(--accent)",
+              secondary: "var(--secondary)",
+              tertiary: "var(--tertiary)",
+              highlight: "var(--highlight)",
+            },
+            borderRadius: {
+              lg: "0.6rem",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body
+    class="bg-bg text-text font-sans min-h-screen p-6 md:p-12 max-w-5xl mx-auto relative overflow-x-hidden selection:bg-accent selection:text-bg"
+  >
+    <div
+      id="blob-container"
+      class="fixed inset-0 pointer-events-none overflow-hidden z-0"
+    ></div>
+
+    <div class="relative z-10">
+      <nav
+        class="flex flex-wrap justify-between items-center mb-20 text-sm sticky top-0 z-50 bg-bg/80 backdrop-blur-md py-4 border-b border-white/5"
+      >
+        <a
+          href="index.html"
+          class="font-display font-bold text-xl tracking-tight text-white transition-colors"
+        >
+          ~ / <span class="hover:text-accent">hritik</span
+          ><span class="text-accent">.dev</span> / about
+        </a>
+        <ul
+          class="flex space-x-8 text-subtext font-medium text-xs uppercase tracking-widest"
+        >
+          <li class="hover:text-accent cursor-pointer transition-colors">
+            <a href="index.html">Home</a>
+          </li>
+          <li class="hover:text-accent cursor-pointer transition-colors">
+            Writing
+          </li>
+          <li class="hover:text-accent cursor-pointer transition-colors">
+            Projects
+          </li>
+        </ul>
+      </nav>
+
+      <section class="mb-24">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div class="col-span-2 space-y-8">
+            <h1
+              class="font-display text-4xl md:text-5xl font-bold leading-tight text-white"
+            >
+              About <span class="text-secondary">Me</span>
+            </h1>
+
+            <div
+              class="text-subtext text-lg leading-relaxed space-y-6 font-light"
+            >
+              <p>
+                Hey, I'm Hritik Shukla. Currently a 1st Year CSE student at
+                <span class="text-white font-medium">NIAT</span> (<span
+                  class="text-white font-medium"
+                  >NxtWave Institute of Advanced Technology</span
+                >).
+              </p>
+              <p>
+                Outside of coding, I enjoy playing
+                <span class="text-text">PC Games</span>,
+                <span class="text-text">Photography</span>, compeating at
+                <span class="text-text">Hackathons</span>,
+                <span class="text-text">Poetry</span> and
+                <span class="text-text">spending time with my family</span>.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="col-span-1 bg-surface p-8 rounded-lg border border-white/5 h-fit hover:border-accent/30 transition-colors duration-300"
+          >
+            <div
+              class="flex items-center gap-2 mb-6 border-b border-white/5 pb-4"
+            >
+              <i class="fas fa-microchip text-accent"></i>
+              <h3 class="font-bold font-display text-white">Shukla's Specs</h3>
+            </div>
+            <ul class="space-y-4 text-sm text-subtext font-mono">
+              <li class="flex justify-between items-center">
+                <span>Origin</span>
+                <span class="text-white bg-bg px-2 py-1 rounded text-xs"
+                  >Bihar, IN</span
+                >
+              </li>
+              <li class="flex justify-between items-center">
+                <span>Base</span>
+                <span class="text-white bg-bg px-2 py-1 rounded text-xs"
+                  >Hyderabad, IN</span
+                >
+              </li>
+              <li class="flex justify-between items-center">
+                <span>Class</span>
+                <span class="text-tertiary">Engineer (1st Yr)</span>
+              </li>
+              <li class="flex justify-between items-center">
+                <span>Build</span>
+                <span class="text-accent">ADHD / 2e</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- <section class="mb-24">
+        <div
+          class="bg-surface p-8 md:p-10 rounded-lg border border-white/5 hover:border-secondary/30 transition-all duration-300 relative overflow-hidden group"
+        >
+          <div
+            class="absolute top-0 right-0 w-64 h-64 bg-secondary opacity-5 rounded-full blur-3xl group-hover:opacity-10 transition-opacity pointer-events-none"
+          ></div>
+
+          <h2
+            class="text-2xl font-bold mb-6 flex items-center gap-3 font-display text-white"
+          >
+            <i class="fas fa-brain text-secondary"></i>
+            The "2e" Framework
+          </h2>
+
+          <p class="text-subtext mb-10 max-w-2xl font-light">
+            I identify as
+            <span class="text-text font-medium">Twice Exceptional (2e)</span>.
+            This means I navigate the world with both high intellectual
+            potential and the unique wiring of ADHD.
+          </p>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="border-l-2 border-accent pl-6">
+              <h3 class="font-bold text-accent mb-2 font-display text-lg">
+                The Engine (High IQ)
+              </h3>
+              <p class="text-sm text-subtext leading-relaxed">
+                Rapid pattern recognition and deep systemic thinking. It allows
+                me to visualize the entire architecture of a solution before
+                writing a single line of code.
+              </p>
+            </div>
+            <div class="border-l-2 border-secondary pl-6">
+              <h3 class="font-bold text-secondary mb-2 font-display text-lg">
+                The Turbo (ADHD)
+              </h3>
+              <p class="text-sm text-subtext leading-relaxed">
+                Hyper-focus that powers 12-hour coding sprints. It brings a
+                non-linear creativity that finds solutions standard logic often
+                misses.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section> -->
+
+      <section class="mb-24">
+        <h2
+          class="text-3xl font-bold mb-10 font-display text-white border-l-4 border-accent pl-4"
+        >
+          Beyond the Terminal
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div
+            class="bg-surface p-8 rounded-lg border border-white/5 hover:border-secondary transition-all duration-300 hover:-translate-y-1 group"
+          >
+            <i
+              class="fas fa-futbol text-3xl text-secondary mb-6 group-hover:scale-110 transition-transform"
+            ></i>
+            <h3 class="font-bold text-lg mb-3 text-white font-display">
+              Tactical Analysis
+            </h3>
+            <p class="text-sm text-subtext mb-6 leading-relaxed">
+              Devout Liverpool FC supporter, loves to analyse Tactics, Pressing
+              Triggers, Player Efficiency and System Design.
+            </p>
+            <span
+              class="text-[10px] uppercase tracking-widest text-secondary font-bold"
+              >#YNWA</span
+            >
+          </div>
+
+          <div
+            class="bg-surface p-8 rounded-lg border border-white/5 hover:border-tertiary transition-all duration-300 hover:-translate-y-1 group"
+          >
+            <i
+              class="fas fa-headphones-simple text-3xl text-tertiary mb-6 group-hover:scale-110 transition-transform"
+            ></i>
+            <h3 class="font-bold text-lg mb-3 text-white font-display">
+              High-Fidelity
+            </h3>
+            <p class="text-sm text-subtext mb-6 leading-relaxed">
+              Loves to tune and remix audios. Obsessing over IEMs, DACs, and
+              lossless codecs. Currently using
+              <a
+                class="text-tertiary"
+                href="https://tangzu.net/products/tangzu-waner-sg-2-jade-dragon-edition-10mm-pet-single-dynamic-in-ear-earphones?pr_prod_strat=e5_desc&pr_rec_id=686c87f75&pr_rec_pid=9981171794201&pr_ref_pid=9877439316249&pr_seq=uniform"
+                >TANGZU WANER SG 2 </a
+              >Jade Dragon Edition.
+            </p>
+            <span
+              class="text-[10px] uppercase tracking-widest text-tertiary font-bold"
+              >Audiophile</span
+            >
+          </div>
+
+          <div
+            class="bg-surface p-8 rounded-lg border border-white/5 hover:border-accent transition-all duration-300 hover:-translate-y-1 group"
+          >
+            <i
+              class="fas fa-feather-alt text-3xl text-accent mb-6 group-hover:scale-110 transition-transform"
+            ></i>
+            <h3 class="font-bold text-lg mb-3 text-white font-display">
+              Poetry
+            </h3>
+            <p class="text-sm text-subtext mb-6 leading-relaxed">
+              Enjoys Philosphy and Poetry. Enjoyer of the writings of
+              <span class="text-accent">Friedrich Nietzsche</span> &
+              <span class="text-accent">Franz Kafka</span>. Currently enjoying
+              The Trail by Kafka.
+            </p>
+            <span
+              class="text-[10px] uppercase tracking-widest text-accent font-bold"
+              >Creative</span
+            >
+          </div>
+        </div>
+      </section>
+
+      <footer
+        class="border-t border-white/5 pt-10 text-center text-xs text-subtext font-mono pb-12"
+      >
+        <div class="mb-4">
+          Local Time: <span id="live-clock" class="text-accent">00:00:00</span>
+        </div>
+        <a
+          href="index.html"
+          class="hover:text-white transition-colors underline decoration-white/20 underline-offset-4"
+          >Return to Terminal</a
+        >
+      </footer>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
