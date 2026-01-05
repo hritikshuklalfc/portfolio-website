@@ -148,7 +148,7 @@ const socialPosts = [
     icon: "fab fa-linkedin",
     content:
       "Today I pushed my first ever contribution to Open Source (updating English League data for OpenFootball).",
-    date: "31st Dec 2025",
+    date: "31 Dec, 2025",
     link: "https://www.linkedin.com/posts/hritik-shukla-a81350366_coding-productivity-opensource-activity-7412149130405539840-Xa4C?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFrR3wEBxjbrLCVJ10k-eZ2CFC6aBpJHPRQ",
   },
   {
@@ -156,14 +156,14 @@ const socialPosts = [
     icon: "fab fa-x",
     content:
       "Stefan Bajcetic staying at Liverpool FC, how is this better for both parties?",
-    date: "31st August 2025",
+    date: "31 Aug, 2025",
     link: "https://x.com/hritikshukla005/status/1962128490615992390?s=20",
   },
   {
     source: "X",
     icon: "fab fa-x",
-    content: "FLORIAN WIRTZ- LEVERKUSEN BOY SET TO BE THE LIVERPOOL MAN",
-    date: "29th May 2025",
+    content: "Florian Wirtz: The Leverkusen Boy Set to be the Liverpool Man",
+    date: "29 May, 2025",
     link: "https://x.com/hritikshukla005/status/1928154907447611878?s=20",
   },
 ];

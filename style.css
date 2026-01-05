@@ -73,6 +73,10 @@ body {
   width: 100%;
   z-index: 0;
   background: transparent;
-  /* Make map slightly desaturated to fit the moody theme */
   filter: sepia(20%) contrast(1.1);
 }
+
+/* .contrast {
+  color: rgb(197, 190, 156);
+  opacity: 0.6;
+} */
