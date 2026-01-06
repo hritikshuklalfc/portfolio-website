@@ -1,8 +1,5 @@
-/* -------------------------------------------------------------------------- */
-/* 1. INITIALIZATION & UTILS                                                  */
-/* -------------------------------------------------------------------------- */
+/* 1. INITIALIZATION & UTILS */
 
-// Time Update Logic
 function updateTime() {
   const now = new Date();
   const timeOptions = {
@@ -14,7 +11,6 @@ function updateTime() {
   };
 
   const timeString = now.toLocaleTimeString("en-US", timeOptions);
-  // Remove seconds for footer
   const shortTime = now.toLocaleTimeString("en-US", {
     ...timeOptions,
     second: undefined,
@@ -29,37 +25,9 @@ function updateTime() {
 setInterval(updateTime, 1000);
 updateTime();
 
-/* -------------------------------------------------------------------------- */
-/* 2. GLOBAL CLICK COUNTER                                                    */
-/* -------------------------------------------------------------------------- */
-const countDisplay = document.getElementById("click-count");
-const blobContainer = document.getElementById("blob-container");
-const API_NAMESPACE = "hritikshukla-portfolio";
-const API_KEY = "global_clicks";
+/* 3. AESTHETIC BLOB LOGIC */
 
-(async function initGlobalCount() {
-  if (!countDisplay) return;
-  try {
-    const res = await fetch(
-      `https://api.counterapi.dev/v1/${API_NAMESPACE}/${API_KEY}/`
-    );
-    const data = await res.json();
-    if (data && data.count) {
-      countDisplay.innerText = data.count.toLocaleString();
-    } else {
-      countDisplay.innerText = "0";
-    }
-  } catch (e) {
-    console.log("Counter offline, using fallback.");
-    countDisplay.innerText = "0";
-  }
-})();
-
-/* -------------------------------------------------------------------------- */
-/* 3. AESTHETIC BLOB LOGIC (UPDATED COLORS)                                   */
-/* -------------------------------------------------------------------------- */
 document.body.addEventListener("click", (e) => {
-  // Prevent blobs on interactive elements
   if (
     e.target.closest("button") ||
     e.target.closest("a") ||
@@ -67,32 +35,22 @@ document.body.addEventListener("click", (e) => {
   )
     return;
 
-  // New Color Palette (Inkwell / Creme Brulee inspired)
-  const colors = [
-    "#A27B5B", // Creme Brulee
-    "#DCD7C9", // Au Lait
-    "#2C3639", // Inkwell (Dark)
-    "#3F4E4F", // Lunar Eclipse
-    "#E3CAA5", // Light Gold
-  ];
+  const colors = ["#A27B5B", "#DCD7C9", "#2C3639", "#3F4E4F", "#E3CAA5"];
   const randomColor = colors[Math.floor(Math.random() * colors.length)];
 
   const blob = document.createElement("div");
   blob.classList.add("click-blob");
   blob.style.background = randomColor;
 
-  // Center blob on click
   blob.style.left = `${e.pageX - 100}px`;
   blob.style.top = `${e.pageY - 100}px`;
 
   if (blobContainer) blobContainer.appendChild(blob);
 
-  // Cleanup
   setTimeout(() => {
     blob.remove();
   }, 1500);
 
-  // Update Counter optimistically
   if (countDisplay) {
     let currentVal = parseInt(countDisplay.innerText.replace(/,/g, "")) || 0;
     countDisplay.innerText = (currentVal + 1).toLocaleString();
@@ -103,9 +61,8 @@ document.body.addEventListener("click", (e) => {
   }
 });
 
-/* -------------------------------------------------------------------------- */
-/* 4. MAP LOGIC                                                               */
-/* -------------------------------------------------------------------------- */
+/* 4. MAP LOGIC */
+
 if (document.getElementById("map") && typeof L !== "undefined") {
   try {
     const lat = 17.385;
@@ -123,7 +80,6 @@ if (document.getElementById("map") && typeof L !== "undefined") {
       attributionControl: false,
     });
 
-    // Use CartoDB Dark Matter for that "Inkwell" look
     L.tileLayer(
       "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
       {
@@ -139,9 +95,8 @@ if (document.getElementById("map") && typeof L !== "undefined") {
   }
 }
 
-/* -------------------------------------------------------------------------- */
-/* 5. SOCIAL FEED                                                             */
-/* -------------------------------------------------------------------------- */
+/* 5. SOCIAL FEED */
+
 const socialPosts = [
   {
     source: "LinkedIn",

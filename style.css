@@ -1,33 +1,26 @@
-/* -------------------------------------------------------------------------- */
-/* HRITIK'S SIGNATURE THEME (INKWELL PALETTE)                                 */
-/* -------------------------------------------------------------------------- */
 :root {
-  /* Core Palette from your Image */
-  --bg: #2c3639; /* Inkwell */
-  --surface: #3f4e4f; /* Lunar Eclipse */
-  --overlay: #4a5b5c; /* Slightly lighter surface for hovers */
+  --bg: #151a19;
+  --surface: #232c2a;
+  --overlay: #34403d;
 
-  /* Text Colors */
-  --text: #dcd7c9; /* Au Lait */
-  --subtext: #a7a39a; /* Dimmed Au Lait */
+  --text: #e6e1d6;
+  --subtext: #8c9694;
 
-  /* Accents */
-  --accent: #a27b5b; /* Creme Brulee */
-  --secondary: #e3caa5; /* Lighter Gold/Cream */
-  --tertiary: #95afc0; /* Muted Blue/Grey for subtle details */
-  --highlight: #ffffff; /* Pure White for pop */
+  --accent: #c2b18a;
+
+  --secondary: #82c0b2;
+
+  --tertiary: #dfa9a9;
+
+  --highlight: #fffdf5;
 }
-
-/* Base Setup */
 body {
   background-color: var(--bg);
   color: var(--text);
-  /* Subtly smoother font rendering */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Scrollbar Customization */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -42,10 +35,9 @@ body {
   background: var(--accent);
 }
 
-/* The "Aesthetic Blob" - Adjusted to match your Gold/Earth tones */
 .click-blob {
   position: absolute;
-  width: 200px; /* Made slightly larger/softer */
+  width: 200px;
   height: 200px;
   border-radius: 50%;
   pointer-events: none;
@@ -66,7 +58,6 @@ body {
   }
 }
 
-/* Map Fix */
 #map {
   height: 100%;
   min-height: 200px;
@@ -75,8 +66,3 @@ body {
   background: transparent;
   filter: sepia(20%) contrast(1.1);
 }
-
-/* .contrast {
-  color: rgb(197, 190, 156);
-  opacity: 0.6;
-} */

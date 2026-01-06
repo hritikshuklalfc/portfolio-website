@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link 
+      rel="icon" 
+      type="image/svg+xml" 
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><style>text{font-family:sans-serif;font-weight:bold;fill:%23d69e80;}</style><rect width='100' height='100' rx='20' fill='%23232c2a'/><text x='50%' y='50%' dominant-baseline='central' text-anchor='middle' font-size='60'>H</text></svg>" 
+    />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hritik Shukla</title>
@@ -28,10 +33,9 @@
         theme: {
           extend: {
             fontFamily: {
-              // The "Original" Touch: Professional Fonts
               sans: ["Inter", "sans-serif"],
               display: ['"Space Grotesk"', "sans-serif"],
-              mono: ['"JetBrains Mono"', "monospace"], // Keep mono only for code snippets
+              mono: ['"JetBrains Mono"', "monospace"],
             },
             colors: {
               bg: "var(--bg)",
@@ -45,7 +49,7 @@
               highlight: "var(--highlight)",
             },
             borderRadius: {
-              lg: "0.6rem", // Sharper corners than the original site
+              lg: "0.6rem",
             },
           },
         },
@@ -204,24 +208,54 @@
           </div>
         </div>
 
-        <div
-          class="bg-surface p-6 rounded-lg border border-white/5 hover:border-accent/30 transition-all duration-300 col-span-1 md:col-span-1 flex flex-col justify-center items-center text-center"
+        <a
+          href="https://github.com/hritikshuklalfc"
+          target="_blank"
+          class="block h-full group cursor-default"
         >
-          <div class="text-[10px] text-subtext mb-2 uppercase tracking-widest">
-            Global Clicks
-          </div>
           <div
-            class="text-4xl font-bold text-white mb-2 font-display"
-            id="click-count"
+            class="bg-surface p-6 rounded-lg border border-white/5 hover:border-accent/50 transition-all duration-300 col-span-1 md:col-span-1 flex flex-col justify-between h-full"
           >
-            --
+            <div class="flex justify-between items-start mb-4">
+              <div
+                id="git-card-label"
+                class="text-[10px] text-subtext uppercase tracking-widest transition-colors font-mono"
+              >
+                Git Activity
+              </div>
+              <i
+                class="fab fa-github text-xl text-subtext group-hover:text-white transition-colors"
+              ></i>
+            </div>
+
+            <div
+              id="github-grid"
+              class="grid grid-rows-7 grid-flow-col gap-1 w-full h-24"
+            ></div>
+
+            <div class="text-[10px] text-subtext mt-3 text-right">
+              <span class="text-accent animate-pulse">●</span> Live
+            </div>
           </div>
-          <div
-            class="text-[10px] text-accent bg-bg px-2 py-1 rounded border border-white/5"
-          >
-            <i class="fas fa-signal mr-1"></i> Live Interactions
-          </div>
-        </div>
+        </a>
+
+        <style>
+          @keyframes spin-slow {
+            from {
+              transform: rotate(0deg);
+            }
+            to {
+              transform: rotate(360deg);
+            }
+          }
+          .animate-spin-slow {
+            animation: spin-slow 8s linear infinite;
+            animation-play-state: paused; 
+          }
+          .playing .animate-spin-slow {
+            animation-play-state: running; 
+          }
+        </style>
 
         <div
           class="bg-surface p-8 rounded-lg border border-white/5 hover:border-accent/30 transition-all duration-300 col-span-1 md:col-span-2"
@@ -244,7 +278,7 @@
           <div class="grid grid-cols-3 gap-4">
             <div class="text-center group cursor-default">
               <div
-                class="w-12 h-12 mx-auto bg-bg rounded-full flex items-center justify-center mb-3 group-hover:scale-110 transition-transform border border-white/5"
+                class="w-12 h-12 mx-auto bg-bg rounded-full flex items-center justify-center mb-3 group-hover:scale-110 transition-transform border border-white/5 "
               >
                 <i class="fab fa-python text-xl text-accent"></i>
               </div>
@@ -312,7 +346,7 @@
         </h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           <a
-            href="https://pedalbyzeroday.base44.app/"
+            href="https://devpost.com/software/pedal-a8but5"
             target="_blank"
             class="block bg-surface p-8 rounded-lg border border-white/5 hover:border-accent transition-all duration-300 group relative overflow-hidden"
           >
@@ -343,7 +377,45 @@
                 >Web App</span
               >
               <span class="bg-bg px-2 py-1 rounded border border-white/5"
-                >Base44</span
+                >Base44 Constraint</span
+              >
+            </div>
+          </a>
+
+          <a
+            href="https://foodmunchbyhrs.netlify.app/"
+            target="_blank"
+            class="block bg-surface p-8 rounded-lg border border-white/5 hover:border-accent transition-all duration-300 group relative overflow-hidden"
+          >
+            <div
+              class="absolute top-0 right-0 bg-accent text-bg text-[10px] font-bold px-3 py-1 rounded-bl-lg font-mono"
+            >
+              LIVE
+            </div>
+            <div class="mb-4">
+              <h3
+                class="text-2xl font-bold text-white group-hover:text-accent transition-colors font-display"
+              >
+                Food Munch
+              </h3>
+            </div>
+            <p class="text-subtext text-sm mb-6 leading-relaxed">
+              A fully responsive restaurant landing page featuring interactive menus, gift vouchers, and smooth scrolling animations.
+            </p>
+            <div
+              class="flex flex-wrap gap-2 text-[10px] font-bold uppercase tracking-widest text-secondary"
+            >
+            <span class="bg-bg px-2 py-1 rounded border border-white/5"
+                >HTMl </span
+              >
+              <span class="bg-bg px-2 py-1 rounded border border-white/5"
+                >Bootstrap</span
+              >
+              <span class="bg-bg px-2 py-1 rounded border border-white/5"
+                >CSS Animations</span
+              >
+              <span class="bg-bg px-2 py-1 rounded border border-white/5"
+                >JavaScript</span
               >
             </div>
           </a>
@@ -413,9 +485,9 @@
             </div>
           </div>
 
-          <div
+          <!-- <div
             class="bg-surface p-8 rounded-lg border border-dashed border-subtext/20 hover:border-tertiary transition-all duration-300 group relative overflow-hidden cursor-pointer"
-          >
+            >
             <div
               class="absolute bg-tertiary rounded-bl-lg top-0 right-0 text-overlay text-[10px] font-bold px-3 py-1 font-mono"
             >
@@ -444,25 +516,14 @@
               <span class="bg-bg px-2 py-1 rounded border border-white/5"
                 >Computer Vision</span
               >
-            </div>
+            </div> -->
+
           </div>
         </div>
       </section>
 
       <section class="mb-24">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <!-- <div
-            class="bg-surface p-6 rounded-lg text-center border border-white/5 hover:bg-bg transition-colors"
-          >
-            <div class="text-3xl font-bold text-secondary font-display">
-              Learner
-            </div>
-            <div
-              class="text-[10px] text-subtext mt-1 uppercase tracking-widest"
-            >
-              Curious & Driven
-            </div>
-          </div> -->
           <div
             class="bg-surface p-6 rounded-lg text-center border border-white/5 hover:bg-bg transition-colors"
           >
@@ -476,47 +537,49 @@
             </div>
           </div>
 
-          <div
-            class="bg-surface p-6 rounded-lg text-center border border-white/5 hover:bg-bg transition-colors"
+          <a
+            href="https://www.linkedin.com/in/hritikshukla005/"
+            target="_blank"
           >
-            <div class="text-3xl font-bold text-accent mb-2">
-              <i class="fab fa-linkedin"></i>
-            </div>
-            <a
-              href="https://www.linkedin.com/in/hritikshukla005/"
-              target="_blank"
-              class="text-[10px] text-subtext mt-1 uppercase tracking-widest hover:text-white"
-              >Hritik Shukla</a
+            <div
+              class="bg-surface p-6 rounded-lg text-center border border-white/5 hover:bg-bg transition-colors"
             >
-          </div>
+              <div class="text-3xl font-bold text-accent mb-2">
+                <i class="fab fa-linkedin"></i>
+              </div>
+              <span
+                class="text-[10px] text-subtext mt-1 uppercase tracking-widest hover:text-white"
+                >Hritik Shukla</span
+              >
+            </div>
+          </a>
 
-          <div
-            class="bg-surface p-6 rounded-lg text-center border border-white/5 hover:bg-bg transition-colors"
-          >
-            <div class="text-3xl font-bold text-secondary mb-2">
-              <i class="fab fa-x"></i>
-            </div>
-            <a
-              href="https://x.com/hritikshukla005"
-              target="_blank"
-              class="text-[10px] text-subtext mt-1 uppercase tracking-widest hover:text-white"
-              >Tactical Galactico</a
+          <a href="https://x.com/hritikshukla005" target="_blank">
+            <div
+              class="bg-surface p-6 rounded-lg text-center border border-white/5 hover:bg-bg transition-colors"
             >
-          </div>
-
-          <div
-            class="bg-surface p-6 rounded-lg text-center border border-white/5 hover:bg-bg transition-colors"
-          >
-            <div class="text-3xl font-bold text-accent mb-2">
-              <i class="fab fa-instagram"></i>
+              <div class="text-3xl font-bold text-secondary mb-2">
+                <i class="fab fa-x"></i>
+              </div>
+              <span
+                class="text-[10px] text-subtext mt-1 uppercase tracking-widest hover:text-white"
+                >Tactical Galactico</span
+              >
             </div>
-            <a
-              href="https://www.instagram.com/hritik5hukla/"
-              target="_blank"
-              class="text-[10px] text-subtext mt-1 uppercase tracking-widest hover:text-white"
-              >@hritik5hukla</a
+          </a>
+          <a href="https://www.instagram.com/hritik5hukla/" target="_blank">
+            <div
+              class="bg-surface p-6 rounded-lg text-center border border-white/5 hover:bg-bg transition-colors"
             >
-          </div>
+              <div class="text-3xl font-bold text-accent mb-2">
+                <i class="fab fa-instagram"></i>
+              </div>
+              <span
+                class="text-[10px] text-subtext mt-1 uppercase tracking-widest hover:text-white"
+                >@hritik5hukla</span
+              >
+            </div>
+          </a>
 
           <!-- <div
             class="bg-surface p-6 rounded-lg text-center border border-white/5 hover:bg-bg transition-colors"
@@ -548,16 +611,19 @@
           <div class="flex gap-4 text-lg ml-4 border-l border-white/10 pl-6">
             <a
               href="https://github.com/hritikshuklalfc"
+              target="_blank"
               class="hover:text-accent transition-colors"
               ><i class="fab fa-github"></i
             ></a>
             <a
               href="https://www.linkedin.com/in/hritik-shukla-a81350366"
+              target="_blank"
               class="hover:text-accent transition-colors"
               ><i class="fab fa-linkedin"></i
             ></a>
             <a
               href="https://x.com/hritikshukla005"
+              target="_blank"
               class="hover:text-accent transition-colors"
               ><i class="fab fa-x"></i
             ></a>
@@ -568,5 +634,6 @@
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="app.js"></script>
+    <script src="git_activity.js"></script>
   </body>
 </html>
