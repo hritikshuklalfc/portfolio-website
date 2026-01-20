@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects | Hritik Shukla</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+              display: ['"Space Grotesk"', "sans-serif"],
+            },
+            colors: {
+              bg: "#151a19",
+              surface: "#232c2a",
+              text: "#e6e1d6",
+              subtext: "#8c9694",
+              accent: "#c2b18a",
+              secondary: "#82c0b2",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body
+    class="bg-bg text-text font-sans min-h-screen p-6 md:p-12 max-w-7xl mx-auto selection:bg-accent selection:text-bg"
+  >
+    <nav
+      class="flex justify-between items-center mb-20 text-sm sticky top-0 z-50 bg-bg/80 backdrop-blur-md py-4 border-b border-white/5"
+    >
+      <div class="font-display font-bold text-xl tracking-tight text-white">
+        <a href="index.html">~ / hritik<span class="text-accent">.dev</span></a>
+      </div>
+      <ul
+        class="flex space-x-8 text-subtext font-medium text-xs uppercase tracking-widest"
+      >
+        <li class="hover:text-accent transition-colors">
+          <a href="index.html">Home</a>
+        </li>
+        <li class="hover:text-accent transition-colors">
+          <a href="about.html">About</a>
+        </li>
+        <li class="text-accent">Projects</li>
+      </ul>
+    </nav>
+
+    <header class="mb-16">
+      <h1 class="font-display text-5xl md:text-7xl font-bold mb-6 text-white">
+        Archive <span class="text-secondary opacity-60">&</span> Works
+      </h1>
+      <p class="text-subtext text-lg max-w-2xl font-light">
+        A collection of web applications, data tools, and experimental projects
+        I've built while exploring the digital landscape.
+      </p>
+    </header>
+
+    <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-24">
+      <a
+        href="https://thehollowscript.netlify.app/"
+        target="_blank"
+        class="flex flex-col justify-between bg-surface p-8 rounded-lg border border-white/5 hover:border-tertiary/50 transition-all duration-300 group relative overflow-hidden"
+      >
+        <div>
+          <div class="flex justify-between items-start mb-6">
+            <i class="fas fa-pen-nib text-xl text-tertiary"></i>
+            <span
+              class="text-[10px] font-mono bg-tertiary/10 text-tertiary px-2 py-1 rounded tracking-widest uppercase"
+              >Writing</span
+            >
+          </div>
+          <h3
+            class="text-2xl font-bold text-white group-hover:text-tertiary transition-colors font-display mb-3"
+          >
+            The Hollow Script
+          </h3>
+          <p class="text-subtext text-sm mb-6 leading-relaxed">
+            A personal dairy to post my poems and philosophy.
+          </p>
+        </div>
+        <div
+          class="flex flex-wrap gap-2 text-[10px] font-bold uppercase tracking-widest"
+        >
+          <span
+            class="bg-bg text-tertiary/80 px-2 py-1 rounded border border-white/5"
+            >Tailwind CSS</span
+          >
+          <span
+            class="bg-bg text-tertiary/80 px-2 py-1 rounded border border-white/5"
+            >JS</span
+          >
+        </div>
+      </a>
+
+      <a
+        href="https://hritikpedia.netlify.app"
+        target="_blank"
+        class="flex flex-col justify-between bg-surface p-8 rounded-lg border border-white/5 hover:border-accent/50 transition-all duration-300 group"
+      >
+        <div>
+          <div class="flex justify-between items-start mb-6">
+            <i class="fas fa-search text-xl text-accent"></i>
+            <span
+              class="text-[10px] font-mono bg-accent/10 text-accent px-2 py-1 rounded tracking-widest uppercase"
+              >Live Tool</span
+            >
+          </div>
+          <h3
+            class="text-2xl font-bold text-white group-hover:text-accent transition-colors font-display mb-3"
+          >
+            HritikPedia
+          </h3>
+          <p class="text-subtext text-sm mb-6 leading-relaxed">
+            Minimalist Wikipedia scraper built to provide a distraction-free
+            reading experience for focused research.
+          </p>
+        </div>
+        <div
+          class="flex flex-wrap gap-2 text-[10px] font-bold uppercase tracking-widest"
+        >
+          <span
+            class="bg-bg text-accent/80 px-2 py-1 rounded border border-white/5"
+            >JavaScript</span
+          >
+          <span
+            class="bg-bg text-accent/80 px-2 py-1 rounded border border-white/5"
+            >Fetch API</span
+          >
+        </div>
+      </a>
+
+      <a
+        href="https://devpost.com/software/pedal-a8but5"
+        target="_blank"
+        class="flex flex-col justify-between bg-surface p-8 rounded-lg border border-white/5 hover:border-accent/50 transition-all duration-300 group"
+      >
+        <div>
+          <div class="flex justify-between items-start mb-6">
+            <i class="fas fa-bicycle text-xl text-accent"></i>
+            <span
+              class="text-[10px] font-mono bg-accent/10 text-accent px-2 py-1 rounded tracking-widest uppercase"
+              >Hackathon</span
+            >
+          </div>
+          <h3
+            class="text-2xl font-bold text-white group-hover:text-accent transition-colors font-display mb-3"
+          >
+            Pedal
+          </h3>
+          <p class="text-subtext text-sm mb-6 leading-relaxed">
+            A platform connecting students with local gig opportunities. Built
+            for Base44 x NIAT Hackathon.
+          </p>
+        </div>
+        <div
+          class="flex flex-wrap gap-2 text-[10px] font-bold uppercase tracking-widest"
+        >
+          <span
+            class="bg-bg text-accent/80 px-2 py-1 rounded border border-white/5"
+            >Base44</span
+          >
+          <span
+            class="bg-bg text-accent/80 px-2 py-1 rounded border border-white/5"
+            >Prompt Engineering</span
+          >
+        </div>
+      </a>
+
+      <a
+        href="https://github.com/hritikshuklalfc/javascript-micro-interactions"
+        target="_blank"
+        class="flex flex-col justify-between bg-surface p-8 rounded-lg border border-white/5 hover:border-secondary/50 transition-all duration-300 group"
+      >
+        <div>
+          <div class="flex justify-between items-start mb-6">
+            <i class="fas fa-flask text-xl text-secondary"></i>
+            <span
+              class="text-[10px] font-mono bg-secondary/10 text-secondary px-2 py-1 rounded tracking-widest uppercase"
+              >Lab</span
+            >
+          </div>
+          <h3
+            class="text-2xl font-bold text-white group-hover:text-secondary transition-colors font-display mb-3"
+          >
+            JS Lab
+          </h3>
+          <ul class="space-y-1 text-xs text-subtext mb-6">
+            <li class="flex items-center gap-2">
+              <span class="w-1 h-1 bg-secondary/50 rounded-full"></span> Konami
+              Code Detector
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="w-1 h-1 bg-secondary/50 rounded-full"></span> Time
+              Bomb Logic
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="w-1 h-1 bg-secondary/50 rounded-full"></span> Dynamic
+              Theme Switcher
+            </li>
+          </ul>
+        </div>
+        <div
+          class="flex flex-wrap gap-2 text-[10px] font-bold uppercase tracking-widest"
+        >
+          <span
+            class="bg-bg text-secondary/80 px-2 py-1 rounded border border-white/5"
+            >DOM Manipulation</span
+          >
+        </div>
+      </a>
+
+      <a
+        href="https://github.com/hritikshuklalfc/phone-detector-meme"
+        target="_blank"
+        class="flex flex-col justify-between bg-surface p-8 rounded-lg border border-white/5 hover:border-secondary/50 transition-all duration-300 group relative overflow-hidden"
+      >
+        <div>
+          <div class="flex justify-between items-start mb-6">
+            <i class="fas fa-mobile-alt text-xl text-secondary"></i>
+            <span
+              class="text-[10px] font-mono bg-secondary/10 text-secondary px-2 py-1 rounded tracking-widest uppercase"
+              >Meme-Tech</span
+            >
+          </div>
+          <h3
+            class="text-2xl font-bold text-white group-hover:text-secondary transition-colors font-display mb-3"
+          >
+            Phone Detector
+          </h3>
+          <p class="text-subtext text-sm mb-6 leading-relaxed">
+            A Python project using Computer Vision to detect devices and trigger
+            custom reactions and memes.
+          </p>
+        </div>
+        <div
+          class="flex flex-wrap gap-2 text-[10px] font-bold uppercase tracking-widest"
+        >
+          <span
+            class="bg-bg text-secondary/80 px-2 py-1 rounded border border-white/5"
+            >OpenCV</span
+          >
+          <span
+            class="bg-bg text-secondary/80 px-2 py-1 rounded border border-white/5"
+            >YOLOv8</span
+          >
+        </div>
+      </a>
+    </section>
+
+    <footer
+      class="border-t border-white/5 pt-10 flex flex-col md:flex-row justify-between items-center text-xs text-subtext pb-12 font-mono"
+    >
+      <span>© 2026 Hritik Shukla. All systems operational.</span>
+      <div class="flex gap-6 mt-4 md:mt-0">
+        <a
+          href="https://github.com/hritikshuklalfc"
+          class="hover:text-accent transition-colors"
+          >GitHub</a
+        >
+        <a
+          href="https://www.linkedin.com/in/hritik-shukla-a81350366"
+          class="hover:text-accent transition-colors"
+          >LinkedIn</a
+        >
+      </div>
+    </footer>
+  </body>
+</html>
