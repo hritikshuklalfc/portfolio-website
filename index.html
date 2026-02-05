@@ -271,56 +271,38 @@
           }
         </style>
 
-        <div
-          class="bg-surface p-8 rounded-lg border border-white/5 hover:border-accent/30 transition-all duration-300 col-span-1 md:col-span-2"
-        >
-          <div
-            class="flex justify-between items-center mb-6 text-subtext border-b border-white/5 pb-4"
-          >
-            <div class="flex gap-2 items-center">
-              <i class="fas fa-crosshairs text-secondary"></i>
-              <span class="font-bold text-white font-display"
-                >Current Focus</span
-              >
+        <div class="bg-surface p-8 rounded-lg border border-white/5 hover:border-accent/30 transition-all duration-300 col-span-1 md:col-span-2 flex flex-col justify-center">
+            <div class="flex justify-between items-center mb-4 border-b border-white/5 pb-2">
+              <div class="flex gap-2 items-center">
+                <div class="flex gap-1.5">
+                  <div class="w-2.5 h-2.5 rounded-full bg-red-500/50"></div>
+                  <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/50"></div>
+                  <div class="w-2.5 h-2.5 rounded-full bg-green-500/50"></div>
+                </div>
+                <span class="font-mono text-[10px] text-subtext ml-2">hritik@macbook:~</span>
+              </div>
+              <span class="text-[10px] text-secondary bg-accent/10 px-2 py-0.5 rounded animate-pulse">● Online</span>
             </div>
-            <span
-              class="text-[10px] text-secondary bg-accent/10 px-2 py-1 rounded-full animate-pulse"
-              >Active Sprint</span
-            >
+
+            <div class="font-mono text-xs leading-relaxed space-y-3">
+              <div class="flex flex-col md:flex-row md:items-center gap-1 md:gap-4">
+                <span class="text-secondary min-w-[80px]">current_obj:</span>
+                <span class="text-white">"Building <span class="text-accent">xAssassin</span> Library"</span>
+              </div>
+              <div class="flex flex-col md:flex-row md:items-center gap-1 md:gap-4">
+                <span class="text-secondary min-w-[80px]">learning:</span>
+                <span class="text-subtext">["Flask Architecture", "PostgreSQL", "Data Science"]</span>
+              </div>
+              <div class="flex flex-col md:flex-row md:items-center gap-1 md:gap-4">
+                <span class="text-secondary min-w-[80px]">music_bg:</span>
+                <span class="text-subtext">"The Search - NF"</span>
+              </div>
+              <div class="mt-4 pt-4 border-t border-white/5 text-subtext/50">
+                <span class="text-accent">➜</span> <span class="animate-pulse">_</span>
+              </div>
+            </div>
           </div>
 
-          <div class="grid grid-cols-3 gap-4">
-            <div class="text-center group cursor-default">
-              <div
-                class="w-12 h-12 mx-auto bg-bg rounded-full flex items-center justify-center mb-3 group-hover:scale-110 transition-transform border border-white/5"
-              >
-                <i class="fab fa-python text-xl text-accent"></i>
-              </div>
-              <div class="text-xs font-bold text-white">Mastering</div>
-              <div class="text-[10px] text-subtext mt-1">
-                Object Oriented Programming
-              </div>
-            </div>
-            <div class="text-center group cursor-default">
-              <div
-                class="w-12 h-12 mx-auto bg-bg rounded-full flex items-center justify-center mb-3 group-hover:scale-110 transition-transform border border-white/5"
-              >
-                <i class="fas fa-book text-xl text-accent"></i>
-              </div>
-              <div class="text-xs font-bold text-white">Learning</div>
-              <div class="text-[10px] text-subtext mt-1">JavaScript</div>
-            </div>
-            <div class="text-center group cursor-default">
-              <div
-                class="w-12 h-12 mx-auto bg-bg rounded-full flex items-center justify-center mb-3 group-hover:scale-110 transition-transform border border-white/5"
-              >
-                <i class="fab fa-apple text-xl text-accent"></i>
-              </div>
-              <div class="text-xs font-bold text-white">Listening</div>
-              <div class="text-[10px] text-subtext mt-1">The NF</div>
-            </div>
-          </div>
-        </div>
 
         <div
           class="bg-surface p-8 rounded-lg border border-white/5 hover:border-accent/30 transition-all duration-300 col-span-1 md:col-span-2 flex flex-col justify-center"
