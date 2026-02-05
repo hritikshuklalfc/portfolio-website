@@ -3,94 +3,102 @@ document.addEventListener("DOMContentLoaded", async function () {
   const container = document.getElementById("github-grid");
   const label = document.getElementById("git-card-label");
 
-  if (!container) return;
-
-  const getLocalDateString = (date) => {
-    const offset = date.getTimezoneOffset();
-    const localDate = new Date(date.getTime() - offset * 60 * 1000);
-    return localDate.toISOString().split("T")[0];
-  };
-
-  const dates = [];
-  const today = new Date();
-  for (let i = 27; i >= 0; i--) {
-    const d = new Date();
-    d.setDate(today.getDate() - i);
-    dates.push(getLocalDateString(d));
+  if (!container) {
+    console.error("Container not found");
+    return;
   }
 
+  // Generate last 28 days
+  const dates = Array.from({ length: 28 }, (_, i) => {
+    const d = new Date();
+    d.setDate(d.getDate() - (27 - i));
+    return d.toISOString().split("T")[0];
+  });
+
+  console.log("Date range:", dates[0], "to", dates[dates.length - 1]);
+
+  const activityCounts = Object.fromEntries(dates.map((d) => [d, 0]));
   const dateMap = {};
-  const activityCounts = {};
 
+  // Create grid
   container.innerHTML = "";
-
   dates.forEach((date) => {
     const square = document.createElement("div");
     square.className =
       "rounded-[1px] bg-white/5 w-full h-full transition-all duration-200 hover:scale-125 hover:z-10 cursor-pointer";
 
-    square.addEventListener("mouseenter", () => {
-      const count = activityCounts[date] || 0;
-      const d = new Date(date);
-      const prettyDate = d.toLocaleDateString("en-US", {
-        month: "short",
-        day: "numeric",
-      });
+    square.onmouseenter = () => {
+      const count = activityCounts[date];
+      const prettyDate = new Date(date + "T12:00:00").toLocaleDateString(
+        "en-US",
+        {
+          month: "short",
+          day: "numeric",
+        },
+      );
       if (label) {
         label.innerText = `${prettyDate}: ${count} Contribution${count !== 1 ? "s" : ""}`;
         label.style.color = "var(--accent)";
       }
       square.style.outline = "1px solid var(--text)";
-    });
+    };
 
-    square.addEventListener("mouseleave", () => {
+    square.onmouseleave = () => {
       if (label) {
         label.innerText = "Git Activity";
         label.style.color = "var(--subtext)";
       }
       square.style.outline = "none";
-    });
+    };
 
     dateMap[date] = square;
-    activityCounts[date] = 0;
     container.appendChild(square);
   });
 
+  console.log("Grid created with", dates.length, "squares");
+
+  // Fetch contribution data
   try {
     const response = await fetch(
-      `https://api.github.com/users/${username}/events?per_page=100&t=${Date.now()}`,
+      `https://github-contributions-api.jogruber.de/v4/${username}?y=last`,
     );
-    const events = await response.json();
 
-    events.forEach((event) => {
-      const date = getLocalDateString(new Date(event.created_at));
-      if (activityCounts[date] !== undefined) {
-        if (event.type === "PushEvent") {
-          activityCounts[date] += event.payload.commits
-            ? event.payload.commits.length
-            : 1;
-        } else if (
-          ["CreateEvent", "PullRequestEvent", "IssuesEvent"].includes(
-            event.type,
-          )
-        ) {
-          activityCounts[date] += 1;
-        }
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    console.log("API Response:", data);
+
+    if (!data.contributions) {
+      console.error("No contributions data in response");
+      return;
+    }
+
+    let foundCount = 0;
+    data.contributions.forEach((contribution) => {
+      const date = contribution.date;
+      if (date in activityCounts) {
+        activityCounts[date] = contribution.count;
+        foundCount++;
       }
     });
 
-    Object.keys(activityCounts).forEach((date) => {
-      const count = activityCounts[date];
+    console.log("Matched contributions for", foundCount, "dates");
+    console.log("Activity counts:", activityCounts);
+
+    // Apply colors
+    Object.entries(activityCounts).forEach(([date, count]) => {
       const square = dateMap[date];
       if (square && count > 0) {
         square.style.backgroundColor = "var(--accent)";
-        if (count === 1) square.style.opacity = "0.3";
-        else if (count <= 3) square.style.opacity = "0.6";
-        else if (count <= 6) square.style.opacity = "0.8";
-        else square.style.opacity = "1";
+        square.style.opacity =
+          count === 1 ? "0.3" : count <= 3 ? "0.6" : count <= 6 ? "0.8" : "1";
       }
     });
+
+    console.log("Colors applied");
   } catch (e) {
-    console.error("Git load error", e);
+    console.error("Git load error:", e);
   }
 });
