@@ -1,0 +1,68 @@
+:root {
+  --bg: #151a19;
+  --surface: #232c2a;
+  --overlay: #34403d;
+
+  --text: #e6e1d6;
+  --subtext: #8c9694;
+
+  --accent: #c2b18a;
+
+  --secondary: #82c0b2;
+
+  --tertiary: #dfa9a9;
+
+  --highlight: #fffdf5;
+}
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--surface);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+.click-blob {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(80px);
+  opacity: 0.4;
+  z-index: 0;
+  animation: blobFade 1.5s ease-out forwards;
+}
+
+@keyframes blobFade {
+  0% {
+    transform: scale(0.5);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+#map {
+  height: 100%;
+  min-height: 200px;
+  width: 100%;
+  z-index: 0;
+  background: transparent;
+  filter: sepia(20%) contrast(1.1);
+}
