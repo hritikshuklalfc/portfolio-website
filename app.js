@@ -25,6 +25,32 @@ function updateTime() {
 setInterval(updateTime, 1000);
 updateTime();
 
+/* 2. AMBIENT GRADIENT ORBS — Sanzo Wada glow */
+
+(function createAmbientOrbs() {
+  let container = document.getElementById('blob-container');
+  if (!container) {
+    container = document.createElement('div');
+    container.id = 'blob-container';
+    container.style.cssText = 'position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0;';
+    document.body.prepend(container);
+  }
+
+  const orbs = [
+    { cls: 'ambient-orb--rose', left: '8%',  top: '10%' },
+    { cls: 'ambient-orb--blue', left: '60%', top: '15%' },
+    { cls: 'ambient-orb--gold', left: '30%', top: '60%' },
+  ];
+
+  orbs.forEach(({ cls, left, top }) => {
+    const el = document.createElement('div');
+    el.classList.add('ambient-orb', cls);
+    el.style.left = left;
+    el.style.top = top;
+    container.appendChild(el);
+  });
+})();
+
 /* 3. AESTHETIC BLOB LOGIC */
 
 document.body.addEventListener("click", (e) => {
@@ -35,21 +61,21 @@ document.body.addEventListener("click", (e) => {
   )
     return;
 
-  const colors = ["#A27B5B", "#DCD7C9", "#2C3639", "#3F4E4F", "#E3CAA5"];
+  const colors = ["#d06c7e", "#6b90b0", "#d4a05a", "#1c1d2a", "#e8e2d8"];
   const randomColor = colors[Math.floor(Math.random() * colors.length)];
 
   const blob = document.createElement("div");
   blob.classList.add("click-blob");
   blob.style.background = randomColor;
 
-  blob.style.left = `${e.pageX - 100}px`;
-  blob.style.top = `${e.pageY - 100}px`;
+  blob.style.left = `${e.pageX - 125}px`;
+  blob.style.top = `${e.pageY - 125}px`;
 
   if (blobContainer) blobContainer.appendChild(blob);
 
   setTimeout(() => {
     blob.remove();
-  }, 1500);
+  }, 2000);
 
   if (countDisplay) {
     let currentVal = parseInt(countDisplay.innerText.replace(/,/g, "")) || 0;
@@ -73,10 +99,13 @@ if (document.getElementById("map") && typeof L !== "undefined") {
     window.myMap = L.map("map", {
       center: [lat, lng],
       zoom: 12,
+      minZoom: 4,
+      maxZoom: 18,
       zoomControl: false,
-      dragging: false,
-      scrollWheelZoom: false,
-      doubleClickZoom: false,
+      dragging: true,
+      scrollWheelZoom: true,
+      touchZoom: true,
+      doubleClickZoom: true,
       attributionControl: false,
     });
 

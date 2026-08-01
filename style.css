@@ -1,19 +1,33 @@
+/* ═══════════════════════════════════════════════
+   花火 HANABI — Living Glow Design System
+   
+   Colors from Sanzo Wada's "A Dictionary of
+   Color Combinations" (配色辞典). Combination
+   of 紅梅 Kōbai + 藍白 Aijiro + 朽葉 Kuchiba.
+   
+   Three ambient gradient orbs drift across a 
+   deep canvas, giving the page a breathing,
+   living quality.
+   ═══════════════════════════════════════════════ */
+
 :root {
-  --bg: #151a19;
-  --surface: #232c2a;
-  --overlay: #34403d;
+  --bg: #09090f;          /* 漆黒 Shikkoku — deep lacquer */
+  --surface: #12131c;     /* 墨色 Sumi — ink wash */
+  --overlay: #1c1d2a;     /* 鉄紺 Tetsukon — iron navy */
 
-  --text: #e6e1d6;
-  --subtext: #8c9694;
+  --text: #e8e2d8;        /* 鳥の子 Torinoko — eggshell ivory */
+  --subtext: #7c7f8a;     /* 鼠色 Nezumi-iro — mouse grey */
 
-  --accent: #c2b18a;
+  --accent: #d06c7e;      /* 紅梅 Kōbai — plum blossom rose */
 
-  --secondary: #82c0b2;
+  --secondary: #6b90b0;   /* 藍白 Aijiro — faded indigo */
 
-  --tertiary: #dfa9a9;
+  --tertiary: #d4a05a;    /* 朽葉 Kuchiba — fallen leaf gold */
 
-  --highlight: #fffdf5;
+  --highlight: #f0ebe2;   /* 白磁 Hakuji — white porcelain */
 }
+
+/* ── Base ── */
 body {
   background-color: var(--bg);
   color: var(--text);
@@ -21,41 +35,114 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* ═══════════════════════════════════════════════
+   AMBIENT GRADIENT ORBS
+   Three colored orbs that slowly float across 
+   the viewport, casting soft glowing light.
+   ═══════════════════════════════════════════════ */
+
+.ambient-orb {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(130px);
+  z-index: 0;
+  will-change: transform;
+}
+
+.ambient-orb--rose {
+  background: var(--accent);
+  width: 550px;
+  height: 550px;
+  opacity: 0.10;
+  animation: orbFloat1 25s ease-in-out infinite;
+}
+
+.ambient-orb--blue {
+  background: var(--secondary);
+  width: 500px;
+  height: 500px;
+  opacity: 0.09;
+  animation: orbFloat2 30s ease-in-out infinite;
+}
+
+.ambient-orb--gold {
+  background: var(--tertiary);
+  width: 450px;
+  height: 450px;
+  opacity: 0.08;
+  animation: orbFloat3 22s ease-in-out infinite;
+}
+
+@keyframes orbFloat1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25%      { transform: translate(60px, -80px) scale(1.05); }
+  50%      { transform: translate(-40px, 40px) scale(0.95); }
+  75%      { transform: translate(80px, 60px) scale(1.02); }
+}
+
+@keyframes orbFloat2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%      { transform: translate(-70px, 50px) scale(1.04); }
+  66%      { transform: translate(50px, -60px) scale(0.96); }
+}
+
+@keyframes orbFloat3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  20%      { transform: translate(40px, 70px) scale(0.97); }
+  40%      { transform: translate(-60px, -30px) scale(1.06); }
+  60%      { transform: translate(30px, -50px) scale(0.98); }
+  80%      { transform: translate(-40px, 40px) scale(1.03); }
+}
+
+/* ── Scrollbar ── */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 5px;
 }
 ::-webkit-scrollbar-track {
   background: var(--bg);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--surface);
+  background: var(--overlay);
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--accent);
 }
 
+/* ── Selection ── */
+::selection {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+/* ── Click Blobs ── */
 .click-blob {
   position: absolute;
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 250px;
   border-radius: 50%;
   pointer-events: none;
-  filter: blur(80px);
-  opacity: 0.4;
+  filter: blur(90px);
+  opacity: 0.35;
   z-index: 0;
-  animation: blobFade 1.5s ease-out forwards;
+  animation: blobFade 2s ease-out forwards;
 }
 
 @keyframes blobFade {
   0% {
-    transform: scale(0.5);
-    opacity: 0.4;
+    transform: scale(0.4);
+    opacity: 0.35;
   }
   100% {
-    transform: scale(1.5);
+    transform: scale(1.8);
     opacity: 0;
   }
+}
+
+/* ── Map ── */
+.map-container {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 #map {
@@ -64,5 +151,23 @@ body {
   width: 100%;
   z-index: 0;
   background: transparent;
-  filter: sepia(20%) contrast(1.1);
+  filter: saturate(0.3) brightness(0.65) contrast(1.15);
+  transition: filter 0.4s ease, opacity 0.4s ease;
+  opacity: 0.65;
+}
+
+.map-container:hover #map,
+.group:hover #map,
+#map:hover {
+  filter: saturate(1.35) brightness(1.15) contrast(1.1);
+  opacity: 1;
+}
+
+.map-container:hover,
+.group:has(#map):hover {
+  border-color: var(--accent) !important;
+  box-shadow: 
+    0 0 35px 4px rgba(208, 108, 126, 0.45),
+    0 0 80px 15px rgba(208, 108, 126, 0.22),
+    inset 0 0 30px 4px rgba(208, 108, 126, 0.3) !important;
 }
